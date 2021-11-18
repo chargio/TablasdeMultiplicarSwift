@@ -80,14 +80,13 @@ struct NextQuestion: View {
 
 
 struct QuestionnaireView: View {
-    @Binding var showingQuestionnaire: Bool
     @ObservedObject var questionnaire: Questionnaire
     @State var responseStr:String = ""
     var response: Int { Int(responseStr) ?? 0}
     
     var body: some View {
         VStack{
-            TopRow(showingQuestionnaire: $showingQuestionnaire)
+            //TopRow(showingQuestionnaire: $showingQuestionnaire)
             ScoreRow( questionnaire: questionnaire)
             Spacer()
             NextQuestion(questionnaire: questionnaire)
@@ -130,10 +129,10 @@ let questionnaire: Questionnaire = Questionnaire(    [
 struct Questionnaire_Previews: PreviewProvider {
     
     static var previews: some View {
-        QuestionnaireView(showingQuestionnaire: .constant(true), questionnaire:  questionnaire)
-        QuestionnaireView(showingQuestionnaire: .constant(true), questionnaire:  questionnaire)
+        QuestionnaireView(questionnaire:  questionnaire)
+        QuestionnaireView(questionnaire:  questionnaire)
             .preferredColorScheme(.dark)
-        QuestionnaireView(showingQuestionnaire: .constant(true), questionnaire:  questionnaire)
+        QuestionnaireView(questionnaire:  questionnaire)
             .previewInterfaceOrientation(.landscapeLeft)
         
     }

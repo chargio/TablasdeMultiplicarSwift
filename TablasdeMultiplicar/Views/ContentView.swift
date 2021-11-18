@@ -24,12 +24,10 @@ struct TableRowView: View {
 
 struct ContentView: View {
     @State var tableList = TablesList.tables
-    @ObservedObject var questionnaire = Questionnaire()
-    
     @State var showingQuestionnaire: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationView{
             VStack(spacing: 10) {
                 
                 Text("¿Qué tablas quieres practicar?")
@@ -57,19 +55,17 @@ struct ContentView: View {
                     questionnaire.questions = questions.shuffled()
                     showingQuestionnaire = true
                     
-                }) {
-                    Text("Empezar")
-                    
-                }
+                }) { Text("Empezar")}
                 .padding()
                 .background(.red)
                 .foregroundColor(.white)
                 .font(.title)
+                
+                NavigationLink(destination: QuestionnaireView(questionnaire: questionnaire), isActive: $showingQuestionnaire){ EmptyView()}
+                .hidden()
                 Spacer()
             }.multilineTextAlignment(.center)
-                .sheet(isPresented: $showingQuestionnaire) {
-                    QuestionnaireView(showingQuestionnaire: $showingQuestionnaire, questionnaire: questionnaire)
-                }.navigationTitle(Text("Mis tablas"))
+            .navigationTitle(Text("Mis tablas"))
         }
     }
 }
