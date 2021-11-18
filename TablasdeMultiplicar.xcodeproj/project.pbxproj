@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493264E627345D22002620F4 /* QuestionnaireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493264E527345D22002620F4 /* QuestionnaireView.swift */; };
+		493264E827346059002620F4 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493264E727346059002620F4 /* TextViews.swift */; };
+		493538DD273C4D4700619E8A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493538DC273C4D4700619E8A /* Game.swift */; };
+		4980BB7E27466CC200F7F6AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4980BB7D27466CC100F7F6AB /* Constants.swift */; };
+		499C500927343AD0007BD5CA /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C500827343AD0007BD5CA /* Table.swift */; };
 		49B7D6D7272C6F3C00C92D95 /* TablasdeMultiplicarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7D6D6272C6F3C00C92D95 /* TablasdeMultiplicarApp.swift */; };
 		49B7D6D9272C6F3C00C92D95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7D6D8272C6F3C00C92D95 /* ContentView.swift */; };
 		49B7D6DB272C6F3F00C92D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B7D6DA272C6F3F00C92D95 /* Assets.xcassets */; };
@@ -14,7 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		49B7D6D3272C6F3C00C92D95 /* TablasdeMultiplicar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TablasdeMultiplicar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		493264E527345D22002620F4 /* QuestionnaireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireView.swift; sourceTree = "<group>"; };
+		493264E727346059002620F4 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		493538DC273C4D4700619E8A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4980BB7D27466CC100F7F6AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		499C500827343AD0007BD5CA /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		49B7D6D3272C6F3C00C92D95 /* Las Tablas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Las Tablas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B7D6D6272C6F3C00C92D95 /* TablasdeMultiplicarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablasdeMultiplicarApp.swift; sourceTree = "<group>"; };
 		49B7D6D8272C6F3C00C92D95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49B7D6DA272C6F3F00C92D95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +42,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		499C500627343AA1007BD5CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				499C500827343AD0007BD5CA /* Table.swift */,
+				493538DC273C4D4700619E8A /* Game.swift */,
+				4980BB7D27466CC100F7F6AB /* Constants.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		499C500727343AAD007BD5CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49B7D6D8272C6F3C00C92D95 /* ContentView.swift */,
+				493264E527345D22002620F4 /* QuestionnaireView.swift */,
+				493264E727346059002620F4 /* TextViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		49B7D6CA272C6F3C00C92D95 = {
 			isa = PBXGroup;
 			children = (
@@ -43,7 +73,7 @@
 		49B7D6D4272C6F3C00C92D95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49B7D6D3272C6F3C00C92D95 /* TablasdeMultiplicar.app */,
+				49B7D6D3272C6F3C00C92D95 /* Las Tablas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +81,9 @@
 		49B7D6D5272C6F3C00C92D95 /* TablasdeMultiplicar */ = {
 			isa = PBXGroup;
 			children = (
+				499C500727343AAD007BD5CA /* Views */,
+				499C500627343AA1007BD5CA /* Models */,
 				49B7D6D6272C6F3C00C92D95 /* TablasdeMultiplicarApp.swift */,
-				49B7D6D8272C6F3C00C92D95 /* ContentView.swift */,
 				49B7D6DA272C6F3F00C92D95 /* Assets.xcassets */,
 				49B7D6DC272C6F3F00C92D95 /* Preview Content */,
 			);
@@ -84,7 +115,7 @@
 			);
 			name = TablasdeMultiplicar;
 			productName = TablasdeMultiplicar;
-			productReference = 49B7D6D3272C6F3C00C92D95 /* TablasdeMultiplicar.app */;
+			productReference = 49B7D6D3272C6F3C00C92D95 /* Las Tablas.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,7 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499C500927343AD0007BD5CA /* Table.swift in Sources */,
+				493538DD273C4D4700619E8A /* Game.swift in Sources */,
+				493264E627345D22002620F4 /* QuestionnaireView.swift in Sources */,
 				49B7D6D9272C6F3C00C92D95 /* ContentView.swift in Sources */,
+				4980BB7E27466CC200F7F6AB /* Constants.swift in Sources */,
+				493264E827346059002620F4 /* TextViews.swift in Sources */,
 				49B7D6D7272C6F3C00C92D95 /* TablasdeMultiplicarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TablasdeMultiplicar/Preview Content\"";
@@ -283,7 +320,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.propedeutica.TablasdeMultiplicar;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Las Tablas";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -295,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TablasdeMultiplicar/Preview Content\"";
@@ -312,7 +350,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.propedeutica.TablasdeMultiplicar;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Las Tablas";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
