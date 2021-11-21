@@ -20,9 +20,11 @@ extension MultiplicationQuestion {
     }
 }
 
+
 class Questionnaire: ObservableObject{
     var remaining: Int { questions.count }
     var questions: [MultiplicationQuestion] = []
+    
     @Published var correct: Int = 0
     @Published var incorrect: Int = 0
     

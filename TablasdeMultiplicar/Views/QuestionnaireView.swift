@@ -8,20 +8,8 @@
 import SwiftUI
 import Combine
 
-struct TopRow: View {
-    @Binding var showingQuestionnaire: Bool
-    var body: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                showingQuestionnaire = false
-            }){
-                Image(systemName: "xmark.circle")
-                    .font(.title)
-            }
-        }.padding()
-    }
-}
+
+
 
 
 struct ScoreRow: View {
@@ -29,35 +17,11 @@ struct ScoreRow: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            VStack {
-                Text("Quedan:")
-                    .bold()
-                Text(String(questionnaire.remaining))
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .clipShape(Circle())
-            }
+            NumberCircle(text: "Quedan", numberText: questionnaire.remaining, color: Color("InfoColor"))
             Spacer()
-            VStack {
-                Text("Bien")
-                    .bold()
-                Text(String(questionnaire.correct))
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(.green)
-                    .clipShape(Circle())
-            }
-            VStack {
-                Text("Mal")
-                    .bold()
-                Text(String(questionnaire.incorrect))
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(.red)
-                    .clipShape(Circle())
-            }
-            
+            NumberCircle(text: "Bien", numberText: questionnaire.correct, color: Color("CorrectColor"))
+            NumberCircle(text: "Mal", numberText: questionnaire.incorrect, color: Color("IncorrectColor"))
+          
             
         }.padding()
     }
@@ -70,6 +34,8 @@ struct NextQuestion: View {
         HStack {
             if let q = questionnaire.currentQuestion {
                 Text(q.question)
+                    .bold()
+                    .font(.title)
             } else {
                 Text("Buen trabajo")
             }
@@ -86,25 +52,31 @@ struct QuestionnaireView: View {
     
     var body: some View {
         VStack{
-            //TopRow(showingQuestionnaire: $showingQuestionnaire)
+            Spacer()
             ScoreRow( questionnaire: questionnaire)
             Spacer()
             NextQuestion(questionnaire: questionnaire)
             
-            
-            if let q = questionnaire.currentQuestion {
-                TextField(q.question, text: $responseStr)
-                    .keyboardType(.asciiCapableNumberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onReceive(Just(responseStr)) { value in
-                        let filtered = "\(value)".filter {"0123456789".contains($0)}
-                        if filtered != value {
-                            self.responseStr = "\(filtered)"
+            HStack {
+                Spacer()
+                if let q = questionnaire.currentQuestion {
+                    TextField(q.question, text: $responseStr)
+                        .keyboardType(.asciiCapableNumberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onReceive(Just(responseStr)) { value in
+                            let filtered = "\(value)".filter {"0123456789".contains($0)}
+                            if filtered != value {
+                                self.responseStr = "\(filtered)"
+                            }
                         }
-                    }
-            }
-            else{
-                TextField("", text: .constant("Buen trabajo"))
+                        .padding()
+                        .multilineTextAlignment(.center)
+                }
+                else{
+                    TextField("", text: .constant("Buen trabajo"))
+                        .padding()
+                }
+                Spacer()
             }
             
             Spacer()
@@ -112,21 +84,24 @@ struct QuestionnaireView: View {
                 questionnaire.answerQuestion(response)
                 responseStr = ""
             }){Text("Responder")}
+            .buttonStyle(.bordered)
             Spacer()
+            
         }
     }
 }
 
-let questionnaire: Questionnaire = Questionnaire(    [
-    MultiplicationQuestion(7,6),
-    MultiplicationQuestion(7,3),
-    MultiplicationQuestion(7,4),
-    MultiplicationQuestion(7,5),
-    MultiplicationQuestion(7,9),
-    MultiplicationQuestion(7,1),
-], correct: 7)
+
 
 struct Questionnaire_Previews: PreviewProvider {
+    static let questionnaire: Questionnaire = Questionnaire(    [
+        MultiplicationQuestion(7,6),
+        MultiplicationQuestion(7,3),
+        MultiplicationQuestion(7,4),
+        MultiplicationQuestion(7,5),
+        MultiplicationQuestion(7,9),
+        MultiplicationQuestion(7,1),
+    ], correct: 7)
     
     static var previews: some View {
         QuestionnaireView(questionnaire:  questionnaire)

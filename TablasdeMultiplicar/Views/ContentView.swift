@@ -25,6 +25,7 @@ struct TableRowView: View {
 struct ContentView: View {
     @State var tableList = TablesList.tables
     @State var showingQuestionnaire: Bool = false
+    @EnvironmentObject var questionnaire: Questionnaire
     
     var body: some View {
         NavigationView{
@@ -53,13 +54,14 @@ struct ContentView: View {
                         }
                     }
                     questionnaire.questions = questions.shuffled()
+                    questionnaire.correct = 0
+                    questionnaire.incorrect = 0
                     showingQuestionnaire = true
                     
                 }) { Text("Empezar")}
-                .padding()
-                .background(.red)
-                .foregroundColor(.white)
                 .font(.title)
+                .buttonStyle(.bordered)
+
                 
                 NavigationLink(destination: QuestionnaireView(questionnaire: questionnaire), isActive: $showingQuestionnaire){ EmptyView()}
                 .hidden()
@@ -72,9 +74,12 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ContentView()
-        ContentView().preferredColorScheme(.dark)
-        ContentView().previewInterfaceOrientation(.landscapeLeft)
+        ContentView().environmentObject(Questionnaire())
+        ContentView().environmentObject(Questionnaire())
+            .preferredColorScheme(.dark)
+        ContentView().environmentObject(Questionnaire())
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
